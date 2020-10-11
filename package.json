@@ -2,8 +2,8 @@
     "name": "lawn-mower",
     "version": "1.0.0",
     "scripts": {
+        "main": "ts-node src/main.ts",
         "prettier": "prettier -w 'src/**/*.ts'",
-        "run": "ts-node src/main.ts",
         "test": "mocha"
     },
     "husky": {
