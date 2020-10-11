@@ -1,10 +1,3 @@
-enum MowerOrientation {
-    North = "N",
-    East = "E",
-    South = "S",
-    West = "W"
-}
-
 export class AutomaticLawnMower {
     private readonly _lawnTotalColumns: number;
     private readonly _lawnTotalRows: number;
@@ -56,7 +49,7 @@ export class AutomaticLawnMower {
         }
     }
 
-    turnLeft() {
+    turnLeft(): void {
         switch (this._getMowerOrientation()) {
             case MowerOrientation.North: {
                 this._setMowerOrientation(MowerOrientation.West);
@@ -77,7 +70,7 @@ export class AutomaticLawnMower {
         }
     }
 
-    turnRight() {
+    turnRight(): void {
         switch (this._getMowerOrientation()) {
             case MowerOrientation.North: {
                 this._setMowerOrientation(MowerOrientation.East);
@@ -98,15 +91,15 @@ export class AutomaticLawnMower {
         }
     }
 
-    private _getMowerColumn() {
+    private _getMowerColumn(): number {
         return this._currentMowerPosition.column;
     }
 
-    private _getMowerRow() {
+    private _getMowerRow(): number {
         return this._currentMowerPosition.row;
     }
 
-    private _getMowerOrientation() {
+    private _getMowerOrientation(): string {
         return this._currentMowerPosition.orientation;
     }
 
@@ -138,4 +131,11 @@ export class AutomaticLawnMower {
             }
         }
     }
+}
+
+enum MowerOrientation {
+    North = "N",
+    East = "E",
+    South = "S",
+    West = "W"
 }
