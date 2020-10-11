@@ -3,14 +3,17 @@ const lineByLine = require("n-readlines");
 export function parseInput(inputPath) {
     const readLineInterface = buildReadlineInterface(inputPath);
     let line = readLineInterface.next();
-    const { lawnColumns, lawnRows } = parseLawnDimensions(line);
+    const {
+        upperRightCornerColumn,
+        upperRightCornerRow
+    } = parseLawnUpperRightPosition(line);
     const mowersPositionAndInstructions = parseMowersPositionAndInstructions(
         readLineInterface
     );
 
     return {
-        lawnColumns,
-        lawnRows,
+        upperRightCornerColumn,
+        upperRightCornerRow,
         mowersPositionAndInstructions
     };
 }
@@ -57,7 +60,10 @@ function parseMowersPositionAndInstructions(readLineInterface) {
     }
 }
 
-function parseLawnDimensions(line) {
-    const [lawnRows, lawnColumns] = line.toString().split(" ").map(Number);
-    return { lawnColumns, lawnRows };
+function parseLawnUpperRightPosition(line) {
+    const [upperRightCornerRow, upperRightCornerColumn] = line
+        .toString()
+        .split(" ")
+        .map(Number);
+    return { upperRightCornerColumn, upperRightCornerRow };
 }

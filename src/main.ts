@@ -1,9 +1,11 @@
 import { AutomaticLawnMower } from "./AutomaticLawnMower";
 import { parseInput } from "./parseInput";
 
-const { lawnColumns, lawnRows, mowersPositionAndInstructions } = parseInput(
-    `${__dirname}/parseInput/testInput.txt`
-);
+const {
+    upperRightCornerColumn,
+    upperRightCornerRow,
+    mowersPositionAndInstructions
+} = parseInput(`${__dirname}/parseInput/testInput.txt`);
 for (const {
     initialColumn,
     initialOrientation,
@@ -11,7 +13,7 @@ for (const {
     instructions
 } of mowersPositionAndInstructions) {
     const automaticLawnMower = new AutomaticLawnMower(
-        { columnLength: lawnColumns, rowLength: lawnRows },
+        { upperRightCornerColumn, upperRightCornerRow },
         {
             initialMowerColumn: initialColumn,
             initialMowerOrientation: initialOrientation,

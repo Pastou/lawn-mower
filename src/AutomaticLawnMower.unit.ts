@@ -5,7 +5,7 @@ describe("AutomaticLawnMower", () => {
     describe("getMowerPosition", () => {
         it("should return the mower row, column and orientation", () => {
             const automaticLawnMower = new AutomaticLawnMower(
-                { columnLength: 4, rowLength: 4 },
+                { upperRightCornerColumn: 4, upperRightCornerRow: 4 },
                 {
                     initialMowerColumn: 1,
                     initialMowerRow: 1,
@@ -26,7 +26,7 @@ describe("AutomaticLawnMower", () => {
     describe("moveMowerForward", () => {
         it("should advance the lawn mower on the grid", () => {
             const automaticLawnMower = new AutomaticLawnMower(
-                { columnLength: 4, rowLength: 4 },
+                { upperRightCornerColumn: 4, upperRightCornerRow: 4 },
                 {
                     initialMowerColumn: 1,
                     initialMowerRow: 1,
@@ -45,7 +45,7 @@ describe("AutomaticLawnMower", () => {
 
         it("should not advance the lawn mower when reaching the limit of the grid", () => {
             const automaticLawnMower = new AutomaticLawnMower(
-                { columnLength: 4, rowLength: 4 },
+                { upperRightCornerColumn: 4, upperRightCornerRow: 4 },
                 {
                     initialMowerColumn: 5,
                     initialMowerRow: 5,
@@ -66,7 +66,7 @@ describe("AutomaticLawnMower", () => {
     describe("turnLeft", () => {
         it("should turn left the lawn mower", () => {
             const automaticLawnMower = new AutomaticLawnMower(
-                { columnLength: 4, rowLength: 4 },
+                { upperRightCornerColumn: 4, upperRightCornerRow: 4 },
                 {
                     initialMowerColumn: 1,
                     initialMowerRow: 1,
@@ -84,7 +84,7 @@ describe("AutomaticLawnMower", () => {
     describe("turnRight", () => {
         it("should turn right the lawn mower", () => {
             const automaticLawnMower = new AutomaticLawnMower(
-                { columnLength: 4, rowLength: 4 },
+                { upperRightCornerColumn: 4, upperRightCornerRow: 4 },
                 {
                     initialMowerColumn: 1,
                     initialMowerRow: 1,

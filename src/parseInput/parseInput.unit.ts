@@ -6,8 +6,8 @@ describe("parseInput", () => {
         const result = parseInput(`${__dirname}/testInput.txt`);
 
         expect(result).to.deep.equal({
-            lawnColumns: 5,
-            lawnRows: 5,
+            upperRightCornerColumn: 5,
+            upperRightCornerRow: 5,
             mowersPositionAndInstructions: [
                 {
                     initialColumn: 2,

@@ -11,11 +11,11 @@ export class AutomaticLawnMower {
     private _currentMowerPosition;
 
     constructor(
-        { rowLength, columnLength },
+        { upperRightCornerRow, upperRightCornerColumn },
         { initialMowerColumn, initialMowerOrientation, initialMowerRow }
     ) {
-        this._lawnTotalColumns = columnLength + 1;
-        this._lawnTotalRows = rowLength + 1;
+        this._lawnTotalColumns = upperRightCornerColumn + 1;
+        this._lawnTotalRows = upperRightCornerRow + 1;
         this._currentMowerPosition = {
             column: initialMowerColumn,
             orientation: initialMowerOrientation,
