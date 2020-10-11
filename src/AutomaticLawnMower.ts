@@ -125,9 +125,7 @@ export class AutomaticLawnMower {
     private _canMowerMoveForward(): boolean {
         switch (this._getMowerOrientation()) {
             case MowerOrientation.North: {
-                return (
-                    this._currentMowerPosition.column < this._lawnTotalColumns
-                );
+                return this._currentMowerPosition.column < this._lawnTotalColumns;
             }
             case MowerOrientation.East: {
                 return this._currentMowerPosition.row < this._lawnTotalRows;

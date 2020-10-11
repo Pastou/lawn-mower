@@ -19,18 +19,7 @@ describe("parseInput", () => {
                     initialColumn: 3,
                     initialOrientation: "E",
                     initialRow: 3,
-                    instructions: [
-                        "F",
-                        "F",
-                        "R",
-                        "F",
-                        "F",
-                        "R",
-                        "F",
-                        "R",
-                        "R",
-                        "F"
-                    ]
+                    instructions: ["F", "F", "R", "F", "F", "R", "F", "R", "R", "F"]
                 }
             ]
         });

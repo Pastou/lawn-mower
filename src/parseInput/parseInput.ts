@@ -3,13 +3,8 @@ const lineByLine = require("n-readlines");
 export function parseInput(inputPath) {
     const readLineInterface = buildReadlineInterface(inputPath);
     let line = readLineInterface.next();
-    const {
-        upperRightCornerColumn,
-        upperRightCornerRow
-    } = parseLawnUpperRightPosition(line);
-    const mowersPositionAndInstructions = parseMowersPositionAndInstructions(
-        readLineInterface
-    );
+    const { upperRightCornerColumn, upperRightCornerRow } = parseLawnUpperRightPosition(line);
+    const mowersPositionAndInstructions = parseMowersPositionAndInstructions(readLineInterface);
 
     return {
         upperRightCornerColumn,
@@ -26,11 +21,7 @@ function parseMowersPositionAndInstructions(readLineInterface) {
     const result = [];
     let line;
     while ((line = readLineInterface.next())) {
-        const {
-            initialColumn,
-            initialOrientation,
-            initialRow
-        } = parseInitiationPosition(line);
+        const { initialColumn, initialOrientation, initialRow } = parseInitiationPosition(line);
         line = readLineInterface.next();
         const instructions = parseLawnInstructions(line);
         result.push({
@@ -43,11 +34,7 @@ function parseMowersPositionAndInstructions(readLineInterface) {
     return result;
 
     function parseInitiationPosition(line) {
-        const [
-            initialRow,
-            initialColumn,
-            initialOrientation
-        ] = line.toString().split(" ");
+        const [initialRow, initialColumn, initialOrientation] = line.toString().split(" ");
         return {
             initialColumn: parseInt(initialColumn),
             initialOrientation,
@@ -61,9 +48,6 @@ function parseMowersPositionAndInstructions(readLineInterface) {
 }
 
 function parseLawnUpperRightPosition(line) {
-    const [upperRightCornerRow, upperRightCornerColumn] = line
-        .toString()
-        .split(" ")
-        .map(Number);
+    const [upperRightCornerRow, upperRightCornerColumn] = line.toString().split(" ").map(Number);
     return { upperRightCornerColumn, upperRightCornerRow };
 }
