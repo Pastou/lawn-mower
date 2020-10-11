@@ -2,8 +2,7 @@ const lineByLine = require("n-readlines");
 
 export function parseInput(inputPath) {
     const readLineInterface = buildReadlineInterface(inputPath);
-    let line = readLineInterface.next();
-    const { upperRightCornerColumn, upperRightCornerRow } = parseLawnUpperRightPosition(line);
+    const { upperRightCornerColumn, upperRightCornerRow } = parseLawnUpperRightPosition(readLineInterface);
     const mowersPositionAndInstructions = parseMowersPositionAndInstructions(readLineInterface);
 
     return {
@@ -17,21 +16,26 @@ function buildReadlineInterface(filePath) {
     return new lineByLine(filePath);
 }
 
+function parseLawnUpperRightPosition(readLineInterface) {
+    const line = readLineInterface.next();
+    const [upperRightCornerRow, upperRightCornerColumn] = line.toString().split(" ").map(Number);
+    return { upperRightCornerColumn, upperRightCornerRow };
+}
+
 function parseMowersPositionAndInstructions(readLineInterface) {
-    const result = [];
+    const mowersPositionAndInstructions = [];
     let line;
     while ((line = readLineInterface.next())) {
         const { initialColumn, initialOrientation, initialRow } = parseInitiationPosition(line);
         line = readLineInterface.next();
-        const instructions = parseLawnInstructions(line);
-        result.push({
+        mowersPositionAndInstructions.push({
             initialColumn,
             initialOrientation,
             initialRow,
-            instructions
+            instructions: parseLawnInstructions(line)
         });
     }
-    return result;
+    return mowersPositionAndInstructions;
 
     function parseInitiationPosition(line) {
         const [initialRow, initialColumn, initialOrientation] = line.toString().split(" ");
@@ -45,9 +49,4 @@ function parseMowersPositionAndInstructions(readLineInterface) {
     function parseLawnInstructions(line) {
         return line.toString().split("");
     }
-}
-
-function parseLawnUpperRightPosition(line) {
-    const [upperRightCornerRow, upperRightCornerColumn] = line.toString().split(" ").map(Number);
-    return { upperRightCornerColumn, upperRightCornerRow };
 }
