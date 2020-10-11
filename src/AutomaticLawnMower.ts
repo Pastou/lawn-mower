@@ -2,7 +2,7 @@ enum MowerOrientation {
     North = "N",
     East = "E",
     South = "S",
-    West = "W",
+    West = "W"
 }
 
 export class AutomaticLawnMower {
@@ -19,7 +19,7 @@ export class AutomaticLawnMower {
         this._currentMowerPosition = {
             column: initialMowerColumn,
             orientation: initialMowerOrientation,
-            row: initialMowerRow,
+            row: initialMowerRow
         };
     }
 
@@ -27,7 +27,7 @@ export class AutomaticLawnMower {
         return {
             mowerColumn: this._getMowerColumn(),
             mowerRow: this._getMowerRow(),
-            mowerOrientation: this._getMowerOrientation(),
+            mowerOrientation: this._getMowerOrientation()
         };
     }
 

@@ -8,14 +8,14 @@ for (const {
     initialColumn,
     initialOrientation,
     initialRow,
-    instructions,
+    instructions
 } of mowersPositionAndInstructions) {
     const automaticLawnMower = new AutomaticLawnMower(
         { columnLength: lawnColumns, rowLength: lawnRows },
         {
             initialMowerColumn: initialColumn,
             initialMowerOrientation: initialOrientation,
-            initialMowerRow: initialRow,
+            initialMowerRow: initialRow
         }
     );
     for (const instruction of instructions) {
@@ -37,7 +37,7 @@ for (const {
     const {
         mowerColumn,
         mowerRow,
-        mowerOrientation,
+        mowerOrientation
     } = automaticLawnMower.getMowerPosition();
     console.log(`${mowerColumn} ${mowerRow} ${mowerOrientation}`);
 }

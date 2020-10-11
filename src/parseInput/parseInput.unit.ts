@@ -13,7 +13,7 @@ describe("parseInput", () => {
                     initialColumn: 2,
                     initialOrientation: "N",
                     initialRow: 1,
-                    instructions: ["L", "F", "L", "F", "L", "F", "L", "F", "F"],
+                    instructions: ["L", "F", "L", "F", "L", "F", "L", "F", "F"]
                 },
                 {
                     initialColumn: 3,
@@ -29,10 +29,10 @@ describe("parseInput", () => {
                         "F",
                         "R",
                         "R",
-                        "F",
-                    ],
-                },
-            ],
+                        "F"
+                    ]
+                }
+            ]
         });
     });
 });

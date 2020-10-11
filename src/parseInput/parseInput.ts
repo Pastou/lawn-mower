@@ -11,7 +11,7 @@ export function parseInput(inputPath) {
     return {
         lawnColumns,
         lawnRows,
-        mowersPositionAndInstructions,
+        mowersPositionAndInstructions
     };
 }
 
@@ -26,7 +26,7 @@ function parseMowersPositionAndInstructions(readLineInterface) {
         const {
             initialColumn,
             initialOrientation,
-            initialRow,
+            initialRow
         } = parseInitiationPosition(line);
         line = readLineInterface.next();
         const instructions = parseLawnInstructions(line);
@@ -34,7 +34,7 @@ function parseMowersPositionAndInstructions(readLineInterface) {
             initialColumn,
             initialOrientation,
             initialRow,
-            instructions,
+            instructions
         });
     }
     return result;
@@ -43,12 +43,12 @@ function parseMowersPositionAndInstructions(readLineInterface) {
         const [
             initialRow,
             initialColumn,
-            initialOrientation,
+            initialOrientation
         ] = line.toString().split(" ");
         return {
             initialColumn: parseInt(initialColumn),
             initialOrientation,
-            initialRow: parseInt(initialRow),
+            initialRow: parseInt(initialRow)
         };
     }
 

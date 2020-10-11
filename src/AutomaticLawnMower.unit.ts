@@ -9,7 +9,7 @@ describe("AutomaticLawnMower", () => {
                 {
                     initialMowerColumn: 1,
                     initialMowerRow: 1,
-                    initialMowerOrientation: "N",
+                    initialMowerOrientation: "N"
                 }
             );
 
@@ -18,7 +18,7 @@ describe("AutomaticLawnMower", () => {
             expect(result).to.deep.equal({
                 mowerColumn: 1,
                 mowerOrientation: "N",
-                mowerRow: 1,
+                mowerRow: 1
             });
         });
     });
@@ -30,7 +30,7 @@ describe("AutomaticLawnMower", () => {
                 {
                     initialMowerColumn: 1,
                     initialMowerRow: 1,
-                    initialMowerOrientation: "N",
+                    initialMowerOrientation: "N"
                 }
             );
 
@@ -39,7 +39,7 @@ describe("AutomaticLawnMower", () => {
             expect(automaticLawnMower.getMowerPosition()).to.deep.equal({
                 mowerColumn: 2,
                 mowerOrientation: "N",
-                mowerRow: 1,
+                mowerRow: 1
             });
         });
 
@@ -49,7 +49,7 @@ describe("AutomaticLawnMower", () => {
                 {
                     initialMowerColumn: 5,
                     initialMowerRow: 5,
-                    initialMowerOrientation: "N",
+                    initialMowerOrientation: "N"
                 }
             );
 
@@ -58,7 +58,7 @@ describe("AutomaticLawnMower", () => {
             expect(automaticLawnMower.getMowerPosition()).to.deep.equal({
                 mowerColumn: 5,
                 mowerOrientation: "N",
-                mowerRow: 5,
+                mowerRow: 5
             });
         });
     });
@@ -70,7 +70,7 @@ describe("AutomaticLawnMower", () => {
                 {
                     initialMowerColumn: 1,
                     initialMowerRow: 1,
-                    initialMowerOrientation: "N",
+                    initialMowerOrientation: "N"
                 }
             );
 
@@ -88,7 +88,7 @@ describe("AutomaticLawnMower", () => {
                 {
                     initialMowerColumn: 1,
                     initialMowerRow: 1,
-                    initialMowerOrientation: "N",
+                    initialMowerOrientation: "N"
                 }
             );
 
