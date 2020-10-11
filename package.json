@@ -2,6 +2,7 @@
   "name": "lawn-mower",
   "version": "1.0.0",
   "scripts": {
+    "prettier": "prettier -w 'src/**/*.ts'",
     "test": "mocha"
   },
   "dependencies": {
