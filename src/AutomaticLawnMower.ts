@@ -12,7 +12,7 @@ export class AutomaticLawnMower {
         this._currentMowerPosition = {
             column: initialMowerColumn,
             orientation: initialMowerOrientation,
-            row: initialMowerRow,
+            row: initialMowerRow
         };
     }
 
