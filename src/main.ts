@@ -30,5 +30,5 @@ for (const { initialColumn, initialOrientation, initialRow, instructions } of mo
         }
     }
     const { mowerColumn, mowerRow, mowerOrientation } = automaticLawnMower.getMowerPosition();
-    console.log(`${mowerColumn} ${mowerRow} ${mowerOrientation}`);
+    console.log(`${mowerRow} ${mowerColumn} ${mowerOrientation}`);
 }
