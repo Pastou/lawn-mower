@@ -11,11 +11,11 @@ export function buildReadLineInterface(inputPath) {
             if (!nextLine) {
                 return false;
             }
-            if (nextLine.toString() === "") {
+            if (nextLine.toString().trim() === "") {
                 return this.getNextLine();
             }
 
-            return nextLine.toString();
+            return nextLine.toString().trim();
         },
         getLineIndex() {
             return lineIndex;

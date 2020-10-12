@@ -33,7 +33,8 @@ function parseLawnUpperRightPosition(readLineInterface, parsingErrors) {
     const line = readLineInterface.getNextLine();
     const [upperRightCornerRow, upperRightCornerColumn] = line.split(" ").map(Number);
     if (!isValidUpperRightCornerPosition(upperRightCornerColumn, upperRightCornerRow)) {
-        parsingErrors.push(
+        addParsingError(
+            parsingErrors,
             `Line ${readLineInterface.getLineIndex()}: Lawn upper right corner position ${line} badly formatted: it must be positive integers separated by a space`
         );
     }
@@ -52,12 +53,14 @@ function parseMowersPositionAndInstructions(
         if (
             !isValidMowerInitialPosition({ initialColumn, initialRow }, { upperRightCornerColumn, upperRightCornerRow })
         ) {
-            parsingErrors.push(
+            addParsingError(
+                parsingErrors,
                 `Line ${readLineInterface.getLineIndex()}: Mower initial position ${line} badly formatted: it must be positive integers within the lawn range`
             );
         }
         if (!isValidMowerInitialOrientation(initialOrientation)) {
-            parsingErrors.push(
+            addParsingError(
+                parsingErrors,
                 `Line ${readLineInterface.getLineIndex()}: Mower initial orientation ${line} badly formatted: it must be 'N', 'E', 'S' or 'W'`
             );
         }
@@ -82,12 +85,25 @@ function parseMowersPositionAndInstructions(
     }
 
     function parseLawnInstructions(line, parsingErrors) {
+        if (!line) {
+            addParsingError(
+                parsingErrors,
+                `Line ${readLineInterface.getLineIndex()}: Missing mower instructions ${line} badly formatted`
+            );
+            return [];
+        }
+        console.log(`Here is the line ${line}`);
         const instructions = line.split("");
         if (!areValidInstructions(instructions)) {
-            parsingErrors.push(
+            addParsingError(
+                parsingErrors,
                 `Line ${readLineInterface.getLineIndex()}: Mower instructions ${line} badly formatted: it must be 'R', 'L', or 'F'`
             );
         }
         return instructions;
     }
+}
+
+function addParsingError(errors, message) {
+    errors.push(message);
 }
