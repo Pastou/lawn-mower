@@ -1,12 +1,12 @@
 # lawn-mower
 
 Given:
-- the upper right corner position,
-- For as many lawn-mower as there is:
-    - the initial lawn-mower position and orientation of type `N`, `E`, `S` or `W` (north,east,south,west),
+- The upper right corner position,
+- For each lawn-mowers:
+    - the initial lawn-mower position and orientation  (`N`, `E`, `S` or `W` i.e north,east,south,west),
     - a list of instructions of type `L`, `R` or `F` (left, right, forward)
 
-We want to know for each lawn-mower give its final position and orientation on the lawn.
+We want to return for each lawn-mower its final position and orientation on the lawn.
 
 ### Example
 
@@ -45,4 +45,4 @@ Execute the following script:
 npm run main
 ```
 
-NB: If you want to test with a different output: change the '/src/mainInput.txt' file
+NB: If you want to test with a different output: change the '/src/mainInput.txt' file to suit your needs
