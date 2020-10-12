@@ -1,4 +1,4 @@
-import * as LineByLine from "n-readLines";
+const LineByLine = require("n-readLines");
 
 export function buildReadLineInterface(inputPath) {
     let lineIndex = 0;
