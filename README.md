@@ -1,7 +1,7 @@
 # lawn-mower
 
 Given:
-- The upper right corner position,
+- The upper right corner position
 - For each lawn-mowers:
     - the initial lawn-mower position and orientation  (`N`, `E`, `S` or `W` i.e north,east,south,west),
     - a list of instructions of type `L`, `R` or `F` (left, right, forward)
