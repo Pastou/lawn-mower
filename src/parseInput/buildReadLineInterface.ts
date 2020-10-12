@@ -8,7 +8,14 @@ export function buildReadLineInterface(inputPath) {
         getNextLine() {
             lineIndex++;
             const nextLine = readLineInterface.next();
-            return nextLine ? nextLine.toString() : false;
+            if (!nextLine) {
+                return false;
+            }
+            if (nextLine.toString() === "") {
+                return this.getNextLine();
+            }
+
+            return nextLine.toString();
         },
         getLineIndex() {
             return lineIndex;
