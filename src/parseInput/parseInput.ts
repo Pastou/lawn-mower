@@ -92,7 +92,6 @@ function parseMowersPositionAndInstructions(
             );
             return [];
         }
-        console.log(`Here is the line ${line}`);
         const instructions = line.split("");
         if (!areValidInstructions(instructions)) {
             addParsingError(
