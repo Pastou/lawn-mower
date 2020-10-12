@@ -3,7 +3,7 @@ import {
     isValidMowerInitialPosition,
     isValidUpperRightCornerPosition,
     isValidMowerInitialOrientation
-} from "./validators";
+} from "./validators/validators";
 import { buildReadLineInterface } from "./buildReadLineInterface";
 
 export function parseInput(inputPath) {
