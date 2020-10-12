@@ -4,7 +4,7 @@ import {
     isValidUpperRightCornerPosition,
     isValidMowerInitialOrientation
 } from "./validators/validators";
-import { buildReadLineInterface } from "./buildReadLineInterface";
+import { buildReadLineInterface } from "./readlineInterface/buildReadLineInterface";
 
 export function parseInput(inputPath) {
     const parsingErrors = [];
