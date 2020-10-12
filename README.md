@@ -35,7 +35,7 @@ Execute the following script:
 
 ```
 # clone and set up the repository
-git clone git@github.com:Pastou/lawn-mower.git && cd lawn-mower && npm install
+git clone https://github.com/Pastou/lawn-mower.git && cd lawn-mower && npm install
 ```
 
 ## How to test
