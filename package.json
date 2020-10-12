@@ -6,6 +6,11 @@
         "prettier": "prettier -w 'src/**/*.ts'",
         "test": "mocha"
     },
+    "husky": {
+        "hooks": {
+            "pre-commit": "pretty-quick --staged"
+        }
+    },
     "dependencies": {
         "@types/chai": "^4.2.13",
         "@types/mocha": "^8.0.3",
