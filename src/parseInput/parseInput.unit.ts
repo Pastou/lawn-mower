@@ -6,20 +6,20 @@ describe("parseInput", () => {
         const result = parseInput(`${__dirname}/testInput.txt`);
 
         expect(result).to.deep.equal({
-            upperRightCornerColumn: 5,
-            upperRightCornerRow: 5,
+            upperRightCornerColumn: 9,
+            upperRightCornerRow: 7,
             mowersPositionAndInstructions: [
                 {
-                    initialColumn: 2,
+                    initialColumn: 4,
                     initialOrientation: "N",
-                    initialRow: 1,
-                    instructions: ["L", "F", "L", "F", "L", "F", "L", "F", "F"]
+                    initialRow: 3,
+                    instructions: ["L", "F", "L", "F", "L", "F", "L", "F", "F", "R", "F"]
                 },
                 {
-                    initialColumn: 3,
+                    initialColumn: 5,
                     initialOrientation: "E",
-                    initialRow: 3,
-                    instructions: ["F", "F", "R", "F", "F", "R", "F", "R", "R", "F"]
+                    initialRow: 4,
+                    instructions: ["F", "F", "R", "F", "F", "R", "F", "R", "R", "F", "L", "F", "L", "F"]
                 }
             ]
         });

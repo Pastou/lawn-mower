@@ -3,7 +3,8 @@
     "version": "1.0.0",
     "scripts": {
         "main": "ts-node src/main.ts",
-        "prettier": "prettier -w 'src/**/*.ts'",
+        "prettier:fix": "prettier -w 'src/**/*.ts'",
+        "prettier:watch": "prettier -l 'src/**/*.ts'",
         "test": "mocha"
     },
     "dependencies": {
