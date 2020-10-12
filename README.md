@@ -2,11 +2,11 @@
 
 Given:
 - the upper right corner position,
-- For as many lawn-mower as there is 
+- For as many lawn-mower as there is:
     - the initial lawn-mower position and orientation of type `N`, `E`, `S` or `W` (north,east,south,west),
     - a list of instructions of type `L`, `R` or `F` (left, right, forward)
 
-For each lawn-mower give its final position and orientation on the lawn.
+We want to know for each lawn-mower give its final position and orientation on the lawn.
 
 ### Example
 
