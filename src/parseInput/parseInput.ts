@@ -1,9 +1,26 @@
-const lineByLine = require("n-readlines");
+import {
+    areValidInstructions,
+    isValidMowerInitialPosition,
+    isValidUpperRightCornerPosition,
+    isValidMowerInitialOrientation
+} from "./validators";
+import { buildReadLineInterface } from "./buildReadLineInterface";
 
 export function parseInput(inputPath) {
-    const readLineInterface = buildReadlineInterface(inputPath);
-    const { upperRightCornerColumn, upperRightCornerRow } = parseLawnUpperRightPosition(readLineInterface);
-    const mowersPositionAndInstructions = parseMowersPositionAndInstructions(readLineInterface);
+    const parsingErrors = [];
+    const readLineInterface = buildReadLineInterface(inputPath);
+    const { upperRightCornerColumn, upperRightCornerRow } = parseLawnUpperRightPosition(
+        readLineInterface,
+        parsingErrors
+    );
+    const mowersPositionAndInstructions = parseMowersPositionAndInstructions(readLineInterface, {
+        upperRightCornerColumn,
+        upperRightCornerRow,
+        parsingErrors
+    });
+    if (parsingErrors.length > 0) {
+        throw new Error(parsingErrors.join("\n"));
+    }
 
     return {
         upperRightCornerColumn,
@@ -12,33 +29,51 @@ export function parseInput(inputPath) {
     };
 }
 
-function buildReadlineInterface(filePath) {
-    return new lineByLine(filePath);
-}
+function parseLawnUpperRightPosition(readLineInterface, parsingErrors) {
+    const line = readLineInterface.getNextLine();
+    const [upperRightCornerRow, upperRightCornerColumn] = line.split(" ").map(Number);
+    if (!isValidUpperRightCornerPosition(upperRightCornerColumn, upperRightCornerRow)) {
+        parsingErrors.push(
+            `Line ${readLineInterface.getLineIndex()}: Lawn upper right corner position ${line} badly formatted: it must be positive integers separated by a space`
+        );
+    }
 
-function parseLawnUpperRightPosition(readLineInterface) {
-    const line = readLineInterface.next();
-    const [upperRightCornerRow, upperRightCornerColumn] = line.toString().split(" ").map(Number);
     return { upperRightCornerColumn, upperRightCornerRow };
 }
 
-function parseMowersPositionAndInstructions(readLineInterface) {
+function parseMowersPositionAndInstructions(
+    readLineInterface,
+    { upperRightCornerColumn, upperRightCornerRow, parsingErrors }
+) {
     const mowersPositionAndInstructions = [];
     let line;
-    while ((line = readLineInterface.next())) {
+    while ((line = readLineInterface.getNextLine())) {
         const { initialColumn, initialOrientation, initialRow } = parseInitiationPosition(line);
-        line = readLineInterface.next();
+        if (
+            !isValidMowerInitialPosition({ initialColumn, initialRow }, { upperRightCornerColumn, upperRightCornerRow })
+        ) {
+            parsingErrors.push(
+                `Line ${readLineInterface.getLineIndex()}: Mower initial position ${line} badly formatted: it must be positive integers within the lawn range`
+            );
+        }
+        if (!isValidMowerInitialOrientation(initialOrientation)) {
+            parsingErrors.push(
+                `Line ${readLineInterface.getLineIndex()}: Mower initial orientation ${line} badly formatted: it must be 'N', 'E', 'S' or 'W'`
+            );
+        }
+
+        line = readLineInterface.getNextLine();
         mowersPositionAndInstructions.push({
             initialColumn,
             initialOrientation,
             initialRow,
-            instructions: parseLawnInstructions(line)
+            instructions: parseLawnInstructions(line, parsingErrors)
         });
     }
     return mowersPositionAndInstructions;
 
     function parseInitiationPosition(line) {
-        const [initialRow, initialColumn, initialOrientation] = line.toString().split(" ");
+        const [initialRow, initialColumn, initialOrientation] = line.split(" ");
         return {
             initialColumn: parseInt(initialColumn),
             initialOrientation,
@@ -46,7 +81,13 @@ function parseMowersPositionAndInstructions(readLineInterface) {
         };
     }
 
-    function parseLawnInstructions(line) {
-        return line.toString().split("");
+    function parseLawnInstructions(line, parsingErrors) {
+        const instructions = line.split("");
+        if (!areValidInstructions(instructions)) {
+            parsingErrors.push(
+                `Line ${readLineInterface.getLineIndex()}: Mower instructions ${line} badly formatted: it must be 'R', 'L', or 'F'`
+            );
+        }
+        return instructions;
     }
 }
