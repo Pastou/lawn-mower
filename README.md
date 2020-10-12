@@ -29,3 +29,20 @@ Expected output
 ### Notes:
 - a map of size 3,2 means 0 ≤ x ≤ 3 and 0 ≤ y ≤ 2
 - the robots cannot get out of the map. If instructed to move outside the boundaries, the robots stays where it is.
+
+## Installation
+Execute the following script:
+
+```
+# clone and set up the repository
+git clone git@github.com:Pastou/lawn-mower.git && cd lawn-mower && npm install
+```
+
+## How to test
+Execute the following script:
+
+```
+npm run main
+```
+
+NB: If you want to test with a different output: change the '/src/mainInput.txt' file
