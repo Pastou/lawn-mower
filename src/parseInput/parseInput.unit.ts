@@ -4,7 +4,7 @@ import { parseInput } from "./parseInput";
 describe("parseInput", () => {
     describe("when the input is well formatted", () => {
         it("should return the lawn columns, rows and mowers initial position and instructions", () => {
-            const result = parseInput(`${__dirname}/testInput.txt`);
+            const result = parseInput(`${__dirname}/validInput.txt`);
 
             expect(result).to.deep.equal({
                 upperRightCornerColumn: 9,
