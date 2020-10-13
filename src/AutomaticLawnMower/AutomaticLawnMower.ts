@@ -124,10 +124,10 @@ export class AutomaticLawnMower {
                 return this._currentMowerPosition.row < this._lawnTotalRows;
             }
             case MowerOrientation.South: {
-                return this._currentMowerPosition.column >= 0;
+                return this._currentMowerPosition.column > 0;
             }
             case MowerOrientation.West: {
-                return this._currentMowerPosition.row >= 0;
+                return this._currentMowerPosition.row > 0;
             }
         }
     }
